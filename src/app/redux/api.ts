@@ -5,7 +5,7 @@ import axios, { InternalAxiosRequestConfig } from 'axios';
 const devEnv = process.env.NODE_ENV !== 'production';
 
 // const baseURL = devEnv ? process.env.NEXT_PUBLIC_DEV_API : process.env.NEXT_PUBLIC_PROD_API;
-const baseURL = process.env.NEXT_PUBLIC_DEV_API ? process.env.NEXT_PUBLIC_DEV_API : 'http://localhost:5000/api/v1';
+const baseURL = process.env.NEXT_PUBLIC_DEV_API ? process.env.NEXT_PUBLIC_DEV_API : 'http://localhost:5000';
 // Định nghĩa header constants
 const HEADER = {
      API_KEY: 'x-api-key',
