@@ -315,7 +315,6 @@ const ProjectsPage = () => {
                                    showTotal: (total) => (
                                         <div className="text-white">{`Hiển thị 1-${total} của ${total} dự án`}</div>
                                    ),
-                                   
                               }}
                          />
                     </ConfigProvider>
