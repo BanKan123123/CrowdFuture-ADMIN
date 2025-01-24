@@ -75,9 +75,13 @@ const ProjectsPage = () => {
      });
 
      const getDaysLeft = (duration: number) => {
-          const now = moment(); // Ngày hiện tại
-          const endDate = now.clone().add(duration, 'days'); // Cộng số ngày
-          return endDate.diff(now, 'days'); // Trả về số ngày còn lại
+          const now = moment();
+          const endDate = now.clone().add(duration, 'days');
+          return endDate.diff(now, 'days');
+     };
+
+     const handleChangePage = (page: any, pageSize: any) => {
+          dispatch(getAllProject({ page: page, limit: pageSize }));
      };
 
      const columns = useMemo(() => {
@@ -308,13 +312,16 @@ const ProjectsPage = () => {
                               // }}
                               className="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-2xl"
                               pagination={{
-                                   current: currentPage,
                                    total: total,
                                    pageSize: limit,
                                    showSizeChanger: true,
-                                   showTotal: (total) => (
-                                        <div className="text-white">{`Hiển thị 1-${total} của ${total} dự án`}</div>
-                                   ),
+                                   showTotal: (total, range) => {
+                                        console.log({ total, range });
+                                        return (
+                                             <div className="text-white">{`Hiển thị 1-${limit} của ${total} dự án`}</div>
+                                        );
+                                   },
+                                   onChange: handleChangePage,
                               }}
                          />
                     </ConfigProvider>
